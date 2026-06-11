@@ -13,25 +13,37 @@
     <div class="app-container">
 
         <!-- Brand Hero Banner -->
-        <div class="brand-hero">
-            <img src="banner-vinotinto.png" alt="Vinotinto Galáctico banner" class="hero-banner-img">
+        <div class="brand-hero" id="brand-hero">
+            <img src="banner-vinotinto.png" alt="Vinotinto Galáctico banner" id="hero-banner-img" class="hero-banner-img">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div class="hero-tool-badge">PROMPT_GUION</div>
-                <p class="hero-subtitle">Generador de Guiones · JULL</p>
+                <div class="hero-tool-badge" id="hero-tool-badge">PROMPT_GUION</div>
+                <p class="hero-subtitle" id="hero-subtitle">Generador de Guiones · JULL</p>
             </div>
         </div>
 
         <!-- Header -->
         <header class="top-nav">
             <div class="logo">
-                <img src="Logo.png" alt="VG Logo" class="logo-img">
-                <span class="logo-text">Vinotinto Galáctico</span>
+                <img src="Logo.png" alt="VG Logo" id="main-logo-img" class="logo-img">
+                <span class="logo-text" id="main-logo-text">Vinotinto Galáctico</span>
             </div>
             <button id="settings-btn" class="icon-btn" title="Ajustes de API">
                 <i data-feather="settings"></i> Ajustes
             </button>
         </header>
+
+        <!-- Mode Switcher -->
+        <div class="mode-switcher-container">
+            <div class="mode-switcher glass-panel">
+                <button id="mode-vinotinto-btn" class="mode-btn active">
+                    <i data-feather="shield"></i> Vinotinto Galáctico
+                </button>
+                <button id="mode-mundial-btn" class="mode-btn">
+                    <i data-feather="globe"></i> Edición Mundial
+                </button>
+            </div>
+        </div>
 
         <!-- Main Content -->
         <main class="main-content">
