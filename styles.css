@@ -55,8 +55,8 @@ h1, h2, h3 {
 .app-container {
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 2rem 2rem;
-    min-height: 100vh;
+    padding: 2rem;
+    min-height: calc(100vh - 200px);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -66,16 +66,16 @@ h1, h2, h3 {
 .brand-hero {
     position: relative;
     width: 100%;
-    height: 220px;
-    border-radius: 0 0 var(--radius) var(--radius);
+    height: 240px;
+    border-radius: var(--radius);
     overflow: hidden;
     flex-shrink: 0;
     background: #0d0005;
-    /* Fondo con la imagen a escala reducida para efecto de zoom lejano */
     background-image: url('banner-vinotinto.png');
-    background-size: 82%;       /* 82% = un poquito más lejos, se ve el texto completo */
+    background-size: 85%;       /* Suficiente para leer bien sin dejar mucho espacio negro */
     background-position: center center;
     background-repeat: no-repeat;
+    box-shadow: var(--shadow);
 }
 
 /* La etiqueta <img> se oculta; el banner va por CSS background */
