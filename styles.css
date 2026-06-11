@@ -72,7 +72,7 @@ h1, h2, h3 {
     flex-shrink: 0;
     background: #0d0005;
     background-image: url('banner-vinotinto.png');
-    background-size: 85%;       /* Suficiente para leer bien sin dejar mucho espacio negro */
+    background-size: 75%;       /* Un poco más atrás para que se lea 'Pasión, fútbol y estrellas' */
     background-position: center center;
     background-repeat: no-repeat;
     box-shadow: var(--shadow);
