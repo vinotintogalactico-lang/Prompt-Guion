@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMPT_GUION - Vinotinto Galáctico</title>
+    <meta name="description" content="Generador de guiones para el canal Vinotinto Galáctico, presentado por JULL.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- Brand Hero Banner -->
+        <div class="brand-hero">
+            <img src="banner-vinotinto.png" alt="Vinotinto Galáctico banner" class="hero-banner-img">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-tool-badge">PROMPT_GUION</div>
+                <p class="hero-subtitle">Generador de Guiones · JULL</p>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="top-nav">
+            <div class="logo">
+                <img src="Logo.png" alt="VG Logo" class="logo-img">
+                <span class="logo-text">Vinotinto Galáctico</span>
+            </div>
+            <button id="settings-btn" class="icon-btn" title="Ajustes de API">
+                <i data-feather="settings"></i> Ajustes
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Left Panel: Input -->
+            <section class="panel input-panel glass-panel">
+                <div class="panel-header">
+                    <div>
+                        <h2><i data-feather="file-text"></i> Noticias del Día</h2>
+                        <p class="subtitle">Pega todas las noticias aquí, sin importar el orden.</p>
+                    </div>
+                </div>
+                <textarea id="news-input" placeholder="Pega aquí el texto del extractor de noticias..."></textarea>
+                <div class="panel-footer">
+                    <button id="generate-btn" class="primary-btn">
+                        <i data-feather="zap"></i> Generar Guion de JULL
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right Panel: Output with Tabs -->
+            <section class="panel output-panel glass-panel">
+
+                <!-- Tab Nav -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" id="tab-guion-btn">
+                        <i data-feather="mic"></i> GUION
+                    </button>
+                    <button class="tab-btn" id="tab-meta-btn">
+                        <i data-feather="tag"></i> METADATOS
+                    </button>
+                    <div class="tab-actions">
+                        <button id="copy-guion-btn" class="secondary-btn hidden" title="Copiar guion puro para TTS">
+                            <i data-feather="copy"></i> Copiar Guion
+                        </button>
+                        <button id="copy-meta-btn" class="secondary-btn hidden" title="Copiar metadatos">
+                            <i data-feather="copy"></i> Copiar Metadatos
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab: Guion -->
+                <div id="tab-guion" class="tab-content active">
+                    <div id="output-guion" class="output-content empty-state">
+                        <i data-feather="coffee" class="empty-icon"></i>
+                        <p>El guion aparecerá aquí, listo para pegar en tu TTS.</p>
+                    </div>
+                </div>
+
+                <!-- Tab: Metadatos -->
+                <div id="tab-meta" class="tab-content hidden">
+                    <div id="output-meta" class="output-content empty-state">
+                        <i data-feather="tag" class="empty-icon"></i>
+                        <p>Título, descripción, shorts y fuentes aparecerán aquí.</p>
+                    </div>
+                </div>
+
+                <!-- Loading State (shared) -->
+                <div id="loading-state" class="loading-state hidden">
+                    <div class="spinner"></div>
+                    <p>JULL está procesando las noticias...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2><i data-feather="key"></i> Configuración de API</h2>
+                <button id="close-modal-btn" class="icon-btn"><i data-feather="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-text">Necesitas una <strong>API Key de Groq</strong> (gratis, rápido, sin VPN en Venezuela).</p>
+                <div class="form-group">
+                    <label for="api-key-input">Groq API Key</label>
+                    <input type="password" id="api-key-input" placeholder="gsk_...">
+                    <small>Se guarda solo en tu navegador. Nunca se envía a otro servidor.</small>
+                </div>
+                <div class="modal-actions">
+                    <a href="https://console.groq.com/keys" target="_blank" class="link-btn">
+                        <i data-feather="external-link"></i> Obtener API Key gratis
+                    </a>
+                    <button id="save-key-btn" class="primary-btn" style="width:auto; padding: 12px 24px;">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="app.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
